@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AnimeLab - Dragon Ball Super</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">AnimeLab</h1>
+      <nav class="main-nav" id="mainNav">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Inicio</a></li>
+          <li><a href="#characters" class="nav-link">Personajes</a></li>
+          <li><a href="#gallery" class="nav-link">Galería</a></li>
+          <li><a href="#news" class="nav-link">Noticias</a></li>
+          <li><a href="#contact" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- Botón para abrir sección Acerca de -->
+<button id="aboutBtn">Acerca de AnimeLab</button>
+      <button id="themeBtn" class="theme-btn" title="Cambiar tema">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero container">
+      <h2>Bienvenidos a AnimeLab</h2>
+      <p>Este sitio sirve para que los estudiantes evalúen la integración de <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong> usando Dragon Ball Super.</p>
+      <div class="quick-actions">
+        <button id="showHint" class="btn">Ver pista (JS)</button>
+        <button onclick="document.querySelector('#gallery').scrollIntoView({behavior:'smooth'})" class="btn">Ir a Galería</button>
+      </div>
+    </section>
+
+    <!-- Sección Personajes Dragon Ball Super -->
+    <section id="characters" class="container cards">
+      <h3>Personajes destacados</h3>
+      <div class="card-grid">
+        <article class="card">
+          <div class="avatar avatar-1" aria-hidden="true">
+            Imagen de Goku: <img src="assets/goku.jpg" alt="Goku">
+          </div>
+          <h4>Goku</h4>
+          <p>Guerrero Saiyajin con habilidades de combate excepcionales.</p>
+          <button class="btn btn-outline" onclick="showProfile('Goku')">Ver Perfil</button>
+        </article>
+
+        <article class="card">
+          <div class="avatar avatar-2" aria-hidden="true">
+            <img src="assets/vegeta.jpg" alt="Vegeta">
+          </div>
+          <h4>Vegeta</h4>
+          <p>Príncipe Saiyajin, rival y compañero de Goku.</p>
+          <button class="btn btn-outline" onclick="showProfile('Vegeta')">Ver Perfil</button>
+        </article>
+
+        <article class="card">
+          <div class="avatar avatar-3" aria-hidden="true">
+            <img src="assets/beerus.jpg" alt="Beerus">
+          </div>
+          <h4>Beerus</h4>
+          <p>Dios de la Destrucción, mantiene el equilibrio del universo.</p>
+          <button class="btn btn-outline" onclick="showProfile('Beerus')">Ver Perfil</button>
+        </article>
+
+        <article class="card">
+          <div class="avatar avatar-new" aria-hidden="true">
+            <img src="assets/bulma.jpeg" alt="Bulma">
+          </div>
+          <h4>Bulma</h4>
+          <p>Científica brillante y amiga de los Saiyajin.</p>
+          <button class="btn btn-outline" onclick="showProfile('Bulma')">Ver Perfil</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Modal para perfiles -->
+    <div id="profileModal" class="modal">
+      <div class="modal-content fade-in">
+        <span class="close-btn" onclick="closeProfile()">&times;</span>
+        <div id="modalAvatar"></div>
+        <h4 id="modalName"></h4>
+        <p id="modalDescription"></p>
+        <p id="modalExtra"></p>
+      </div>
+    </div>
+
+    <!--GALERÍA-->
+    <section id="gallery" class="container">
+      <h3>Galería</h3>
+      <p>Haz click en cualquier "tarjeta" para abrir una vista más grande.</p>
+      <div class="gallery-grid">
+        <figure class="thumb" onclick="openLightbox('assets/goku.jpg')">
+          <img src="assets/goku.jpg" alt="GOKU ULTRAINSTINTO" />
+          <figcaption color="red">GOKU ULTRAINSTINTO</figcaption>
+        </figure>
+        <figure class="thumb" onclick="openLightbox('assets/bulma.jpeg')">
+          <img src="assets/bulma.jpeg" alt="BULMA" />
+          <figcaption>BULMA</figcaption>
+        </figure>
+        <figure class="thumb" onclick="openLightbox('assets/vegeta.jpg')">
+          <img src="assets/vegeta.jpg" alt="VEGUETA SUPER SAYAYIN BLUE" />
+          <figcaption>VEGUETA SUPER SAYAYIN BLUE</figcaption>
+        </figure>
+      </div>
+    </section>
+    <!-- Sección Acerca de (inicialmente oculta) -->
+<section id="aboutSection" class="about-section">
+  <div class="about-content">
+    <h2>Acerca de AnimeLab</h2>
+    <p><strong>Desarrollador:</strong> Juan Martin Pool Pool</p>
+    <p><strong>Grupo:</strong> 3A</p>
+    <p><strong>Unidad</strong> III</p>
+    <p><strong>Asignatura:</strong>DESARROLLO WEB</p>
+    <p><strong>Descripción:</strong> AnimeLab es un proyecto educativo que integra HTML, CSS y JavaScript para crear una experiencia interactiva inspirada en la temática anime.</p>
+    <p><strong>Redes:</strong> 
+      <a href="https://github.com/tuusuario" target="_blank">GitHub</a> | 
+      <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a>
+    </p>
+    <button id="closeAbout">Cerrar</button>
+  </div>
+</section>
+    
+<!-- Nueva Galería Extendida -->
+<section id="gallery-extended" class="container">
+  <h3>Galería Extendida</h3>
+  <p>Explora más ilustraciones de Dragon Ball Super.</p>
+  <div class="gallery-grid">
+    <figure class="thumb" onclick="openLightbox('assets/goku2.jpg')">
+      <img src="assets/goku2.jpg" alt="Goku Super Saiyajin" />
+      <figcaption>Goku Super Saiyajin</figcaption>
+    </figure>
+    <figure class="thumb" onclick="openLightbox('assets/vegeta2.jpg')">
+      <img src="assets/vegeta2.jpg" alt="Vegeta" />
+      <figcaption>Vegeta</figcaption>
+    </figure>
+    <figure class="thumb" onclick="openLightbox('assets/beerus.jpg')">
+      <img src="assets/beerus.jpg" alt="Beerus" />
+      <figcaption>Beerus</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================== SECCIÓN NUEVA: NOTICIAS ================== -->
+<section id="news" class="news-section container">
+  <h2>Noticias</h2>
+
+  <div class="news-container">
+
+    <div class="news-card">
+      <img src="assets/goku.jpg" alt="Nueva transformación">
+      <h3>Nueva Transformación Confirmada</h3>
+      <small>Publicado hoy</small>
+    <button type="button" onclick="abrirNoticia(0, event)">Ver más</button>
+
+    </div>
+
+    <div class="news-card">
+      <img src="assets/vegeta.jpg" alt="DBS 2025">
+      <h3>Dragon Ball Super 2025</h3>
+      <small>Hace 2 días</small>
+      <button type="button" onclick="abrirNoticia(1, event)">Ver más</button>
+    </div>
+
+    <div class="news-card">
+      <img src="assets/beerus.jpg" alt="Lanzamiento global">
+      <h3>Lanzamiento Global</h3>
+      <small>Este mes</small>
+      <button type="button" onclick="abrirNoticia(2, event)">Ver más</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal Noticias -->
+<div id="newsModal" class="modal">
+  <div class="modal-content">
+    <h2 id="newsTitle"></h2>
+    <img id="newsImg" src="" alt="" style="width:100%; border-radius:8px; margin:10px 0;">
+    <p id="newsText"></p>
+    <button class="close-news">Cerrar</button>
+  </div>
+</div>
+
+
+<section id="contact" class="container">
+  <h3>Contacto</h3>
+  <form id="contactForm" class="form" novalidate>
+    <label>
+      Nombre
+      <input type="text" name="name" id="name" />
+      <span class="input-icon error">⚠️</span>
+      <span class="input-icon success">✔️</span>
+      <span class="error-msg"></span>
+    </label>
+
+    <label>
+      Correo
+      <input type="text" name="email" id="email" />
+      <span class="input-icon error">⚠️</span>
+      <span class="input-icon success">✔️</span>
+      <span class="error-msg"></span>
+    </label>
+
+    <label>
+      Mensaje
+      <textarea name="message" id="message" rows="4"></textarea>
+      <span class="input-icon error">⚠️</span>
+      <span class="input-icon success">✔️</span>
+      <span class="error-msg"></span>
+    </label>
+
+    <div class="form-actions">
+      <button type="submit" class="btn">Enviar</button>
+      <button type="reset" class="btn btn-outline">Limpiar</button>
+    </div>
+
+    <p id="formSuccess" class="form-success"></p>
+  </form>
+</section>
+
+
+</main>
+
+<footer class="site-footer container">
+  <p>AnimeLab • Proyecto educativo — HTML • CSS • JavaScript</p>
+  <p class="small">Abre el proyecto en Visual Studio Code para editar los archivos en /css, /js y /assets.</p>
+  <p>&copy; <span id="currentYear"></span> AnimeLab Fans</p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com" target="_blank" class="icon instagram"><img src="assets/Instagram.webp" alt="Instagram" width="25px" height="25px"></a>
+    <a href="https://www.youtube.com" target="_blank" class="icon youtube"><img src="assets/YouTube.webp" alt="YouTube" width="25px" height="25px"></a>
+    <a href="https://www.facebook.com" target="_blank" class="icon facebook"><img src="assets/facebook.png" alt="facebook" width="25px" height="25px"></a>
+    <a href="https://www.x.com" target="_blank" class="icon x"><img src="assets/x.png" alt="X" width="25px" height="25px"></a>
+  </div>
+</footer>
+
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+  <img id="lightboxImg" alt="Vista ampliada" />
+</div>
+
+<!-- Botón para reproducir/pausar música -->
+<button id="musicBtn">🎵</button>
+
+<!-- Audio oculto -->
+<audio id="animeMusic" src="assets/gt-dragonball-intro.mp3"></audio>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
